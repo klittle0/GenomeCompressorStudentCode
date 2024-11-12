@@ -26,7 +26,13 @@ public class GenomeCompressor {
     public static void compress() {
 
         // TODO: complete the compress() method
-
+        // Need to convert each char (8 bits) into corresponding ASCII value (7 bits)
+        // Either use a while loop that run until end of file or a for-loop of file length?
+        String text = BinaryStdIn.readString();
+        for (int i = 0; i < text.length(); i++){
+            // Writes current char as a 7-bit value
+            BinaryStdOut.write(text.charAt(i), 7);
+        }
         BinaryStdOut.close();
     }
 
@@ -36,7 +42,10 @@ public class GenomeCompressor {
     public static void expand() {
 
         // TODO: complete the expand() method
-
+        String text = BinaryStdIn.readString();
+        for (int i = 0; i < text.length(); i++){
+            BinaryStdOut.
+        }
         BinaryStdOut.close();
     }
 
