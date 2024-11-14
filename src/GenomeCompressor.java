@@ -18,20 +18,29 @@
  *  @author Zach Blick
  */
 public class GenomeCompressor {
+    static final int BITS_PER_INT = 2;
 
     /**
      * Reads a sequence of 8-bit extended ASCII characters over the alphabet
      * { A, C, T, G } from standard input; compresses and writes the results to standard output.
      */
     public static void compress() {
-
-        // TODO: complete the compress() method
-        // Need to convert each char (8 bits) into corresponding ASCII value (7 bits)
-        // Either use a while loop that run until end of file or a for-loop of file length?
         String text = BinaryStdIn.readString();
-        for (int i = 0; i < text.length(); i++){
-            // Writes current char as a 7-bit value
-            BinaryStdOut.write(text.charAt(i), 7);
+        int len = text.length();
+        for (int i = 0; i < len; i++){
+            // Writes each char as a 2 bit binary int, saving 6 bits per letter
+            if (text.charAt(i) == 'A'){
+                BinaryStdOut.write(0, BITS_PER_INT);
+            }
+            else if (text.charAt(i) == 'C'){
+                BinaryStdOut.write(1, BITS_PER_INT);
+            }
+            else if (text.charAt(i) == 'T'){
+                BinaryStdOut.write(2, BITS_PER_INT);
+            }
+            else if (text.charAt(i) == 'G'){
+                BinaryStdOut.write(3, BITS_PER_INT);
+            }
         }
         BinaryStdOut.close();
     }
@@ -41,10 +50,20 @@ public class GenomeCompressor {
      */
     public static void expand() {
 
-        // TODO: complete the expand() method
-        String text = BinaryStdIn.readString();
-        for (int i = 0; i < text.length(); i++){
-            BinaryStdOut.
+        while (!BinaryStdIn.isEmpty()) {
+            int i = BinaryStdIn.readInt(BITS_PER_INT);
+            if (i == 0){
+                BinaryStdOut.write('A');
+            }
+            else if (i == 1){
+                BinaryStdOut.write('C');
+            }
+            else if (i == 2){
+                BinaryStdOut.write('T');
+            }
+            else if (i == 3){
+                BinaryStdOut.write('G');
+            }
         }
         BinaryStdOut.close();
     }
