@@ -18,7 +18,7 @@
  *  @author Zach Blick
  */
 public class GenomeCompressor {
-    static final int BITS_PER_INT = 2;
+    static final int BINARY_BITS = 2;
 
     /**
      * Reads a sequence of 8-bit extended ASCII characters over the alphabet
@@ -27,19 +27,21 @@ public class GenomeCompressor {
     public static void compress() {
         String text = BinaryStdIn.readString();
         int len = text.length();
+        // Metadata that tells the length of the file in binary
+        BinaryStdOut.write(len);
         for (int i = 0; i < len; i++){
-            // Writes each char as a 2 bit binary int, saving 6 bits per letter
+            // Writes each char as a 2 bit binary int
             if (text.charAt(i) == 'A'){
-                BinaryStdOut.write(0, BITS_PER_INT);
+                BinaryStdOut.write(0, BINARY_BITS);
             }
             else if (text.charAt(i) == 'C'){
-                BinaryStdOut.write(1, BITS_PER_INT);
+                BinaryStdOut.write(1, BINARY_BITS);
             }
             else if (text.charAt(i) == 'T'){
-                BinaryStdOut.write(2, BITS_PER_INT);
+                BinaryStdOut.write(2, BINARY_BITS);
             }
             else if (text.charAt(i) == 'G'){
-                BinaryStdOut.write(3, BITS_PER_INT);
+                BinaryStdOut.write(3, BINARY_BITS);
             }
         }
         BinaryStdOut.close();
@@ -49,25 +51,25 @@ public class GenomeCompressor {
      * Reads a binary sequence from standard input; expands and writes the results to standard output.
      */
     public static void expand() {
-
-        while (!BinaryStdIn.isEmpty()) {
-            int i = BinaryStdIn.readInt(BITS_PER_INT);
-            if (i == 0){
+        int meta = BinaryStdIn.readInt();
+        // This use to be a while loop—while file isn't empty
+        for (int i = 0; i < meta; i++) {
+            int j = BinaryStdIn.readInt(BINARY_BITS);
+            if (j == 0){
                 BinaryStdOut.write('A');
             }
-            else if (i == 1){
+            else if (j == 1){
                 BinaryStdOut.write('C');
             }
-            else if (i == 2){
+            else if (j == 2){
                 BinaryStdOut.write('T');
             }
-            else if (i == 3){
+            else if (j == 3){
                 BinaryStdOut.write('G');
             }
         }
         BinaryStdOut.close();
     }
-
 
     /**
      * Main, when invoked at the command line, calls {@code compress()} if the command-line

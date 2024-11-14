@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73ab661-840a-4b64-b072-3764519be013" name="Changes" comment="11/13 - compress &amp; expand done">
+    <list default="true" id="b73ab661-840a-4b64-b072-3764519be013" name="Changes" comment="11/1 - worklog updte">
+      <change afterPath="$PROJECT_DIR$/src/BinaryStdIn.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BinaryStdOut.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DumpBinary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExpandedVirus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GenomeCompressor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/virus.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/virusExpanded.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WORK_LOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/WORK_LOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GenomeCompressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenomeCompressor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,13 +89,22 @@
       <option name="project" value="LOCAL" />
       <updated>1731558910385</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="11/13 - worklog updte">
+      <option name="closed" value="true" />
+      <created>1731559137693</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731559137693</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="11/12 - first commit" />
     <MESSAGE value="11/13 - compress &amp; expand done" />
-    <option name="LAST_COMMIT_MESSAGE" value="11/13 - compress &amp; expand done" />
+    <MESSAGE value="11/13 - worklog updte" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/13 - worklog updte" />
   </component>
 </project>
