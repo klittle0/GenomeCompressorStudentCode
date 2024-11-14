@@ -52,7 +52,6 @@ public class GenomeCompressor {
      */
     public static void expand() {
         int meta = BinaryStdIn.readInt();
-        // This use to be a while loop—while file isn't empty
         for (int i = 0; i < meta; i++) {
             int j = BinaryStdIn.readInt(BINARY_BITS);
             if (j == 0){
